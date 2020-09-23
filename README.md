@@ -1,13 +1,5 @@
 # Project Greenfield
 
-## [Scripts](/package.json)
-
-=======
-
-# project-greenfield
-
-# productinfo
-
 =======
 
 This is a mock-up of a client-facing retail web-portal.
@@ -22,7 +14,7 @@ $ npm run test <- runs tests
 
 ## [Server](/server/index.js)
 
-Because our information comes from the blackbox, this server will only be used to serve the production bundle upon deployment.
+Because our information comes from a blackbox API, this server will only be used to serve the production bundle upon deployment.
 
 ```
 $ npm build <- builds a production bundle
@@ -72,11 +64,10 @@ Progress of performance optimization is documentated below, using Google Lightho
 <img src='https://i.imgur.com/Gd19FTd.png' width='50%'/>
 </details>
 
-# [**Overview Component**](/src/components/overviewComponents)
+# [**Ratings and Reviews Component**](/src/components/overviewComponents)
 
-### Main Contributor: **James Prytherch**
+### Main Contributor: **Cesar Roman**
 
-![](https://imgur.com/p5pe51u.png)
 
 
 ## **Live Demo**
@@ -85,12 +76,7 @@ Progress of performance optimization is documentated below, using Google Lightho
 [**Imgur link to demo GIF**](https://i.imgur.com/P31fhAJ.gif')
 
 ## Main features:
-
-- Product Details
-- Photo Carousel
-- Style, Size, Quantity Selection
-- Add to cart
-- Data Collection
+- Example
 
 ## Contributions to overall project:
 
