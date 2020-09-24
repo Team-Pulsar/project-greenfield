@@ -70,7 +70,7 @@ Progress of performance optimization is documentated below, using Google Lightho
 
 ### Main Contributor: **Cesar Roman**
 
-![](https://drive.google.com/uc?export=view&id=1MyRzfF42QJFiTc4ZOXMJSi23vAEjfMAi)
+![image](https://user-images.githubusercontent.com/60380027/94177591-c9dcd180-fe67-11ea-930e-1135011089fc.png)
 
 
 ## **Live Demo**
