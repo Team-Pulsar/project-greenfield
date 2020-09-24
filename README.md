@@ -1,6 +1,6 @@
 # Project Greenfield
 
-This is a mock-up of a client-facing retail web-portal.
+Our outdated client-facing retail web-portal has become significantly outdated and has been proven to be hurting sales numbers. Project Greenfield comprises a complete redesign of the retail portal designed to address this concern and modernize the site. This document outlines the features to be implemented as part of Project Greenfield in its initial release. The following requirements define the new user interface required for customers to browse items in our retail catalog.
 
 These are the scripts in package JSON
 
@@ -18,8 +18,6 @@ Because our information comes from a blackbox API, this server will only be used
 $ npm build <- builds a production bundle
 $ node ./server <- runs express server
 ```
-
-[Production Build from Express](http://localhost:8080/) is serving production bundle
 
 ## [App](/src/components/App.js)
 
@@ -62,120 +60,66 @@ Progress of performance optimization is documentated below, using Google Lightho
 <img src='https://i.imgur.com/Gd19FTd.png' width='50%'/>
 </details>
 
-# [**Ratings and Reviews Component**](/src/components/overviewComponents)
+# [**Ratings and Reviews Component**](/src/components/Reviews)
 
 ### Main Contributor: **Cesar Roman**
-
-
 
 ## **Live Demo**
 <b>The FPS and Quality of this demo have been significantly reduced to be formatted in this document, please see optimization for accurate data on load times and smoothness of application.</b>
 
-[**Imgur link to demo GIF**](https://i.imgur.com/P31fhAJ.gif')
+[**Link to demo GIF**](http://g.recordit.co/kLOoxaYOUV.gif)
 
-## Main features:
-- Example
+## Ratings and Reviews Features:
 
-## Contributions to overall project:
+**Purpose**: The Ratings & Reviews module will allow viewing and submission of reviews for the product selected. The functionality contained within this module can be divided into several pieces:
 
-
-- Setup **express server**, and **react routes** to create accurate URL paths for individual product IDs.
-- **Optimization** of network payloads compressing bundled files to GZIP and serving via express server
-
-## Product Details Feature:
-
-**Purpose**: Product Information files express a competance in retrieving data, and displaying the information dynamically to the user in a pleasant way. As well as, allowing teammembers to access critical information for their own components in a nonintrusive and cleanly way.
+- Reviews List
+- Individual Review Tile
+- Sort Options
+- Write New Review
+- Rating Breakdown (Filtering)
+- Product Characteristics Breakdown (Factors)
 
 Queries API for product data based on the URL end point, adding to a shared store via Redux.
 
-- [Redux Actions](/src/actions/overviewActions/productInfoActions.js)
-- [Redux Reducers](/src/reducers/overviewReducers)
+- [Redux Actions](/src/actions/ReviewActions/actions.js)
+- [Redux Reducers](/src/reducers/Reviews)
 - [Store](/src/reducers/index.js)
 
-This feature renders the other feature components, as well as the other widgets designed by group members.
-
-### [Product Information I](/src/components/overviewComponents/productInfoHelpers/pricingNameReviews.js)
-
-**Dynamically renders:**
-
-- Product Name
-- Category
-- Style Name
-  - Based on user's selection
-- Style Selection Interface
-  - Renders thumbnails of different styles available
-  - User may click image to change style
-- Pricing
-  - Based on user selected style
-  - Colored red if discounted price
-
-### [Product Information II](/src/components/overviewComponents/productInfoHelpers/productDescription.js)
+### [Reviews List](/src/components/Reviews/reviewRatingsHelpers/ReviewsList.js)
+The heart of the Ratings and Reviews module will be the list of reviews available for the user to read.   This list will display all the reviews that have been submitted for the product being viewed.  
 
 **Dynamically renders:**
 
-- Product Description Text
-- Features associated with product
-
-## [Photo Carousel Feature:](/src/components/overviewComponents/productInfoHelpers/PhotoGallery.js)
-
-**The photo carousel functionality is 100% custom design and implementation. Some of the key features are below.**
-
-#### Default Carousel:
-
-User may change the displayed image using the left and right arrows displayed.
-
-- If a user navigates left or right more times than there are images, the carousel will repeat in the direction of navigation.
-  - i.e. If the user navigated left on the first image, the last image would be displayed and vice-versa.
-
-- The bottom of the currently displayed photo is darkened and bolded to indicate the current index.
-- [Thumbnails](/src/components/overviewComponents/productInfoHelpers/thumbnails.js)
-  - Compressed smaller images that display other attached photos for that product's style.
-  - Clicking a thumbnail will display that image.
-  - If there are more than 7 images for a selected style, an arrow down thumbnail will appear that, when clicked, displays remainding images in the same fashion
-    - After a user has clicked the arrow down thumbnail, an arrow up thumbnail will display which will allow the user to navigate to previous thumbnail grouping.
+- Each individual Review Tile (initial load of 2, subsequent render of 2 additional reviews per click on 'More Reviews' button)
+  - Once there are no more review to load, 'More Reviews' button will not render
+- Number of Reviews and Sort Options which consists of selections for sorting by:
+  - Helpful - This sort order will prioritize reviews that have been found helpful.  The order can be found by subtracting “No” responses from “Yes” responses and    sorting such that the highest score appears at the top.
+  - Newest - This is a straightforward sort based on the date the review was submitted.  The most recent reviews should appear first.
+  - Relevant - Relevance will be determined by a combination of both the date that the review was submitted as well as ‘helpfulness’ feedback received.  This        combination should weigh the two characteristics such that recent reviews appear near the top, but do not outweigh reviews that have been found helpful.          Similarly, reviews that have been helpful should appear near the top, but should yield to more recent reviews if they are older.
 
 
-- Clicking the displayed image will change the display to an expanded view...
+- 'Add Review' button which will pop up modal with form that will allow user to select star rating which will appropriately show what each star rating equates to
+  - Also allows user to select if they recommend product
+  - Select characteristics 
+  - Write review summar and body with minimum character limit (50) and dynamically shows how many characters are left before limit is reached
+  - Allows user to upload photo
+  - Requires valid email
+  - Once submitted will be posted to API and saved
 
-### Expanded View Carousel:
-
-- Hides the product information to the right of the default carousel
-- Expands the carousel displayed image
-- Navigation remains the same
-  - Thumbnail style and location are changed however
-
-- Click on the displayed image in expanded view will trigger the zoomed display...
-
-### [**Hover Zoom and Pan Over Expanded Image:**](/src/components/overviewComponents/productInfoHelpers/zoom.js)
-
-User will see a zoomed view of the product which can be panned over and navigated through the movement of the cursor over the image.
-
-- Tracks user's mouse position relative to the image container
-- A ratio is divised from the carousel dimensions
-- The image is scaled to 2.5x original size
-
-
-### [Style, Size, Quantity Selection Features:](/src/components/overviewComponents/productInfoHelpers/selectors.js)
+### [Ratings Breakdown](/src/components/Reviews/reviewRatingsHelpers/RatingsBreakdown.js)
+A breakdown of the ratings received for the product will double as the filtering options for the reviews list.  This breakdown will display at the top left corner of the Rating and Reviews module. 
 
 **Dynamically renders:**
-- [Styles available](/src/components/overviewComponents/productInfoHelpers/snapshotGallery.js)
-- [Sizes available for selected style](/src/components/overviewComponents/productInfoHelpers/sizeDropDown.js)
-- [Quantites available for selected style and size](/src/components/overviewComponents/productInfoHelpers/quantitySelect.js)
-  * Maximum of 15 displayed
-  * if not in stock, 'out of stock' message will appear in size selector
 
-## **Add to Cart:**
-- Validates size and quanitity selection
-  * if no size or quantity selected, a warning message will display above the selectors notifying the user to make a selection.
-- Posts user's selection to API, adding to the user's stored cart.
+- Rating summary, which is a visual breakdown of the start ratings received for the product will double as the filtering options for the reviews list.
+  - Each filter is additive, meaning if a user selects 4 and 5 stars, they will only reviews with those two ratings, if one specific rating is clicked again, that    will be removed from the filtering.
+- Breakdown, seen below the Rating summary, allows the user to see a visual representation of all of the possible star ratings in the form of a bar graph which is   populated based on the percentage amount of each specific rating.
+- Percentage of how many "recommendations" were given to the product based on the reviews given.
 
-## **Data Collection:**
-- Valuable data is collected when a user clicks on key components, the meta data is store using redux and may be posted to API for collection.
-  * Data is tracked on iteractions with key components such as:
-    - Photo Carousel
-    - Style Selector
-    - Size Selector
-    - Add to Cart
-  * How many interactions, and the time of the last interaction are stored
+### [Product Characteristics Breakdown](/src/components/Reviews/reviewRatingsHelpers/CharBreakdown.js)
 
-**Use case:** Company could see real data of how many styles, or photos a user browses before making a selection.  Company could correlate whether more photo browsing is more likely to produce a sale, and thus increase available images for products.
+**Dynamically renders:**
+- Visual representation of the feedback given on specific characteristics for each product
+  - Each type of product has it's own characteristics, so the trickiest part here was in figuring out a way to build out two functions that would serve as the 'filterLow' and 'filterHigh' to appropriately categorize ratings based on the characteristics. 
+- Implemented bar graphs with a Caret Down that would mark the accurate rating of the characteristic on a sliding scale. 
