@@ -18,6 +18,12 @@ Because our information comes from a blackbox API, this server will only be used
 $ npm build <- builds a production bundle
 $ node ./server <- runs express server
 ```
+# Tech Stack
+- React.js
+- Redux
+- Node.js
+- Express
+- React-Bootstrap
 
 ## [App](/src/components/App.js)
 
