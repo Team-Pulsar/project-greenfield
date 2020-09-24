@@ -64,7 +64,7 @@ Progress of performance optimization is documentated below, using Google Lightho
 
 ### Main Contributor: **Cesar Roman**
 
-![](https://drive.google.com/uc?export=view&id=1MyRzfF42QJFiTc4ZOXMJSi23vAEjfMAi)
+![image](https://drive.google.com/uc?export=view&id=1MyRzfF42QJFiTc4ZOXMJSi23vAEjfMAi)
 
 
 ## **Live Demo**
