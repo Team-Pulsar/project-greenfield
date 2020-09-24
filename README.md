@@ -74,11 +74,11 @@ Progress of performance optimization is documentated below, using Google Lightho
 **Purpose**: The Ratings & Reviews module will allow viewing and submission of reviews for the product selected. The functionality contained within this module can be divided into several pieces:
 
 - [Reviews List](/src/components/Reviews/reviewRatingsHelpers/ReviewsList.js)
-- [Individual Review Tile] (/src/components/Reviews/reviewRatingsHelpers/ReviewTile.js)
-- [Sort Options] (/src/components/Reviews/reviewRatingsHelpers/SortingView.js)
-- [Write New Review] (/src/components/Reviews/reviewRatingsHelpers/AddReview.js)
-- [Rating Breakdown (Filtering)] (/src/components/Reviews/reviewRatingsHelpers/RatingsBreakdown.js)
-- [Product Characteristics Breakdown (Factors)] (/src/components/Reviews/reviewRatingsHelpers/CharBreakdown.js)
+- [Individual Review Tile](/src/components/Reviews/reviewRatingsHelpers/ReviewTile.js)
+- [Sort Options](/src/components/Reviews/reviewRatingsHelpers/SortingView.js)
+- [Write New Review](/src/components/Reviews/reviewRatingsHelpers/AddReview.js)
+- [Rating Breakdown (Filtering)](/src/components/Reviews/reviewRatingsHelpers/RatingsBreakdown.js)
+- [Product Characteristics Breakdown (Factors)](/src/components/Reviews/reviewRatingsHelpers/CharBreakdown.js)
 
 Queries API for product data based on the URL end point, adding to a shared store via Redux.
 
