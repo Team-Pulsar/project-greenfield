@@ -112,9 +112,9 @@ A breakdown of the ratings received for the product will double as the filtering
 
 **Dynamically renders:**
 
-- Rating summary, which is a visual breakdown of the start ratings received for the product will double as the filtering options for the reviews list.
+- [StarBreakdown](/src/components/Reviews/reviewRatingsHelpers/StarBreakdown.js), which is a visual breakdown of the start ratings received for the product will double as the filtering options for the reviews list.
   - Each filter is additive, meaning if a user selects 4 and 5 stars, they will only reviews with those two ratings, if one specific rating is clicked again, that    will be removed from the filtering.
-- Breakdown, seen below the Rating summary, allows the user to see a visual representation of all of the possible star ratings in the form of a bar graph which is   populated based on the percentage amount of each specific rating.
+  - Serves as visual representation of all of the possible star ratings in the form of a bar graph which is   populated based on the percentage amount of each        specific rating.
 - Percentage of how many "recommendations" were given to the product based on the reviews given.
 
 ### [Product Characteristics Breakdown](/src/components/Reviews/reviewRatingsHelpers/CharBreakdown.js)
