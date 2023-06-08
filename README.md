@@ -1,4 +1,4 @@
-# Project Greenfield
+# Pulsar Shop
 
 Our outdated client-facing retail web-portal has become significantly outdated and has been proven to be hurting sales numbers. Project Greenfield comprises a complete redesign of the retail portal designed to address this concern and modernize the site. We were given a 27 page SRS outlining the features to be implemented as part of Project Greenfield in its initial release with only two weeks as a deadline. 
 
