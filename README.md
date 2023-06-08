@@ -10,14 +10,6 @@ $ npm run build <- creates production bundle // See server notes
 $ npm run test <- runs tests
 ```
 
-## [Server](/server/index.js)
-
-Because our information comes from a blackbox API, this server will only be used to serve the production bundle upon deployment.
-
-```
-$ npm build <- builds a production bundle
-$ node ./server <- runs express server
-```
 # Tech Stack
 - React.js
 - Redux
