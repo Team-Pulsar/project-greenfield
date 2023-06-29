@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import SnapshotGallery from "./snapshotGallery";
-import Ratings from "react-ratings-declarative";
+import SnapshotGallery from './snapshotGallery';
+import Ratings from 'react-ratings-declarative';
 
 const PricingNameReviews = ({
   productInfo,
@@ -29,12 +29,12 @@ const PricingNameReviews = ({
           <Ratings.Widget widgetDimension="12px" widgetSpacing="0px" />
           <Ratings.Widget widgetDimension="12px" widgetSpacing="0px" />
         </Ratings>
-        {"  "}
+        {'  '}
         <a
           className="review-anchor-link"
-          style={{ color: "blue", textDecorationLine: "underline" }}
+          style={{ color: 'blue', textDecorationLine: 'underline' }}
           onClick={() => {
-            document.getElementById("anchor").scrollIntoView();
+            document.getElementById('anchor').scrollIntoView();
           }}
         >
           Read All Reviews
@@ -42,8 +42,8 @@ const PricingNameReviews = ({
       </div>
       {productInfo.category}
       <h1>{productInfo.name}</h1>
-      <p style={sale ? { color: "red" } : null}>${price}</p>
-      <b>Style ></b> {productStyle.name ? productStyle.name : styles[0].name}
+      <p style={sale ? { color: 'red' } : null}>${price}</p>
+      <b>Style </b> {productStyle.name ? productStyle.name : styles[0].name}
       <SnapshotGallery
         styles={styles}
         changeHandler={changeHandler}
