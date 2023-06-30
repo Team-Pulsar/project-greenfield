@@ -4,30 +4,44 @@ import AddReview from './AddReview';
 import SortingView from './SortingView';
 import Button from 'react-bootstrap/Button';
 
-const ReviewsList = (props) => {
+type ReviewListProps = {
+  productId: number;
+  reviews: number[];
+  show: boolean;
+  clickHandler: () => void;
+  loadMoreReviews: () => void;
+  name: string;
+};
+
+const ReviewsList: React.FC<ReviewListProps> = ({
+  productId,
+  reviews,
+  show,
+  clickHandler,
+  loadMoreReviews,
+  name,
+}) => {
   return (
     <div>
       <div>
-        <SortingView productId={props.productId} />
+        <SortingView productId={productId} reviews={reviews} />
         <br />
-        <ReviewTile reviews={props.reviews} />
+        <ReviewTile reviews={reviews} />
         <div className="button-container">
-          {props.show ? (
+          {show && (
             <Button
               style={{ borderColor: 'black' }}
               variant="light"
               className="more-reviews-btn"
-              onClick={props.clickHandler}
+              onClick={clickHandler}
             >
               More Reviews
             </Button>
-          ) : (
-            <p></p>
           )}
           <AddReview
-            loadMoreReviews={props.loadMoreReviews}
-            name={props.name}
-            productId={props.productId}
+            loadMoreReviews={loadMoreReviews}
+            name={name}
+            productId={productId}
           />
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Ratings from 'react-ratings-declarative';
-import { validateEmail } from './reviewHelpers';
+import { validateEmail } from '../../../utils/reviewHelpers';
 import { filterLow, filterHigh } from './CharBreakdown';
 import axios from 'axios';
 

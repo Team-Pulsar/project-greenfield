@@ -3,18 +3,13 @@ import React from 'react';
 // import { getReviews } from '../../../actions/ReviewActions/actions';
 
 type SortingViewProps = {
-  getData: (url: string) => void;
   productId: number;
   reviews: number[];
 };
 
-const SortingView: React.FC<SortingViewProps> = ({
-  getData,
-  productId,
-  reviews,
-}) => {
+const SortingView: React.FC<SortingViewProps> = ({ productId, reviews }) => {
   let sort = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    getData(
+    fetch(
       `http://18.224.200.47/reviews/${productId}/list?count=30&sort=${e.target.value}`
     );
   };
