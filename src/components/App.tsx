@@ -4,7 +4,13 @@
 // import ProductInfo from './overviewComponents/productInfo';
 // import RatingsAndReviews from './Reviews/RatingsAndReviews';
 import React from 'react';
+import RatingsAndReviews from './Reviews/RatingsAndReviews';
 
-const App: React.FC = () => <h1>Hi there!</h1>;
+const App: React.FC = () => (
+  <div>
+    <h1>Hi there!</h1>
+    <RatingsAndReviews />
+  </div>
+);
 
 export default App;

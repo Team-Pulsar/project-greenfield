@@ -1,5 +1,6 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
+  preset: 'ts-jest',
   testEnvironment: 'jsdom',
 
   // The root of your source code, typically /src
@@ -9,7 +10,7 @@ module.exports = {
   // Jest transformations -- this adds support for TypeScript
   // using ts-jest
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.(ts|tsx)$': 'ts-jest',
   },
 
   // Runs special logic, such as cleaning up components

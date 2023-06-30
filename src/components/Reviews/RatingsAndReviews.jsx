@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { getReviews } from '../../actions/ReviewActions/actions';
 import RatingsBreakdown from './reviewRatingsHelpers/RatingsBreakdown';
 import ReviewsList from './reviewRatingsHelpers/ReviewsList';
 import './reviewsStyle.css';
+import reviews from '../../../data/reviews';
+
+const productId = 1;
 
 class RatingsAndReviews extends Component {
   constructor(props) {
@@ -21,9 +23,9 @@ class RatingsAndReviews extends Component {
   }
 
   componentDidMount() {
-    this.props.getData(
-      `http://18.224.200.47/reviews/${this.props.productId}/list?count=30`
-    );
+    // this.props.getData(
+    //   `http://18.224.200.47/reviews/${this.props.productId}/list?count=30`
+    // );
   }
 
   changeView() {
@@ -35,7 +37,7 @@ class RatingsAndReviews extends Component {
   }
 
   loadMoreReviews() {
-    if (this.props.reviews.length > this.state.numOfReviews) {
+    if (reviews.length > this.state.numOfReviews) {
       this.setState({
         numOfReviews: this.state.numOfReviews + 2,
       });
@@ -47,26 +49,25 @@ class RatingsAndReviews extends Component {
   }
 
   renderView() {
-    if (!this.state.filtered) {
-      let reviews = this.props.reviews.slice(0, this.state.numOfReviews);
-      return (
-        <ReviewsList
-          loadMoreReviews={this.loadMoreReviews}
-          name={this.props.name}
-          productId={this.props.productId}
-          show={this.state.showMore}
-          clickHandler={this.loadMoreReviews}
-          reviews={reviews}
-        />
-      );
-    } else {
-      let filtered = this.props.reviews.filter((review) =>
-        this.state.starCount.includes(review.rating)
-      );
-      return (
-        <ReviewsList reviews={filtered} productId={this.props.productId} />
-      );
-    }
+    return <div>ReviewsList Placeholder</div>;
+    // if (!this.state.filtered) {
+    //   let reviews = reviews.slice(0, this.state.numOfReviews);
+    //   return (
+    //     <ReviewsList
+    //       loadMoreReviews={this.loadMoreReviews}
+    //       name={this.props.name}
+    //       productId={this.props.productId}
+    //       show={this.state.showMore}
+    //       clickHandler={this.loadMoreReviews}
+    //       reviews={reviews}
+    //     />
+    //   );
+    // } else {
+    //   let filtered = reviews.filter((review) =>
+    //     this.state.starCount.includes(review.rating)
+    //   );
+    //   return <ReviewsList reviews={filtered} productId={productId} />;
+    // }
   }
 
   handleClick(starCount) {
@@ -109,7 +110,7 @@ class RatingsAndReviews extends Component {
       <div id="anchor" className="ratingsReviewContainer container">
         <div className="ratingsBreakdown">
           <RatingsBreakdown
-            productId={this.props.productId}
+            productId={productId}
             changeView={this.changeView}
             stars={this.state.starCount}
             filtered={this.state.filtered}
@@ -122,16 +123,18 @@ class RatingsAndReviews extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    reviews: state.reviews.reviewsData,
-  };
-};
+export default RatingsAndReviews;
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getData: (url) => dispatch(getReviews(url)),
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     reviews: state.reviews.reviewsData,
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RatingsAndReviews);
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     getData: (url) => dispatch(getReviews(url)),
+//   };
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(RatingsAndReviews);
