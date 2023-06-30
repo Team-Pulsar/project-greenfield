@@ -22,9 +22,9 @@ const StarBreakdown: React.FC<StarBreakdownProps> = ({
   <>
     <div className="starBarContainer">
       {[5, 4, 3, 2, 1].map((star, i) => {
-        let amount = ratings[star] || 0;
+        // let amount = ratings[star] || 0;
         let totalReviews = numOfRatings || 0;
-        let percentage = (amount / totalReviews) * 100;
+        // let percentage = (amount / totalReviews) * 100;
         return (
           <React.Fragment key={i}>
             <span
@@ -33,8 +33,8 @@ const StarBreakdown: React.FC<StarBreakdownProps> = ({
             >
               {star} stars
             </span>
-            <span className="progress-label-right">{amount}</span>
-            <ProgressBar now={percentage} variant="success" />
+            <span className="progress-label-right">{1}</span>
+            <ProgressBar now={1} variant="success" />
             <br />
           </React.Fragment>
         );

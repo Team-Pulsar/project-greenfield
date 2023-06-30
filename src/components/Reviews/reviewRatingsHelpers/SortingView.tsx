@@ -2,9 +2,21 @@ import React from 'react';
 // import { connect } from 'react-redux';
 // import { getReviews } from '../../../actions/ReviewActions/actions';
 
+type Review = {
+  rating: number;
+  reviewer_name: string;
+  date: string;
+  summary: string;
+  body: string;
+  recommend: boolean;
+  response: boolean;
+  photos: Record<string, string>[];
+  helpfulness: boolean;
+};
+
 type SortingViewProps = {
   productId: number;
-  reviews: number[];
+  reviews: Review[];
 };
 
 const SortingView: React.FC<SortingViewProps> = ({ productId, reviews }) => {

@@ -6,11 +6,23 @@ import Button from 'react-bootstrap/Button';
 
 type ReviewListProps = {
   productId: number;
-  reviews: number[];
+  reviews: Review[];
   show: boolean;
   clickHandler: () => void;
   loadMoreReviews: () => void;
   name: string;
+};
+
+type Review = {
+  rating: number;
+  reviewer_name: string;
+  date: string;
+  summary: string;
+  body: string;
+  recommend: boolean;
+  response: boolean;
+  photos: Record<string, string>[];
+  helpfulness: boolean;
 };
 
 const ReviewsList: React.FC<ReviewListProps> = ({
