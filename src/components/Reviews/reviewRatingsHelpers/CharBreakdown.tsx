@@ -2,7 +2,11 @@ import React from 'react';
 import { CaretDownFill } from 'react-bootstrap-icons';
 import '../reviewsStyle.css';
 
-export const filterLow = (name) => {
+type CharBreakdownProps = {
+  characteristics: string[];
+};
+
+export const filterLow = (name: string) => {
   if (name === 'Fit') {
     return 'Runs tight';
   } else if (name === 'Size') {
@@ -18,7 +22,7 @@ export const filterLow = (name) => {
   }
 };
 
-export const filterHigh = (name) => {
+export const filterHigh = (name: string) => {
   if (name === 'Fit') {
     return 'Runs long';
   } else if (name === 'Size') {
@@ -34,7 +38,7 @@ export const filterHigh = (name) => {
   }
 };
 
-export const CharBreakdown = (props) => {
+export const CharBreakdown: React.FC<CharBreakdownProps> = (props) => {
   return (
     <div className="char-bar-container">
       {props.characteristics.map((char, i) => (
@@ -54,10 +58,10 @@ export const CharBreakdown = (props) => {
             <div style={{ backgroundColor: 'lightgrey' }}>
               <div
                 className="char-bar-filler"
-                style={{
-                  height: '10px',
-                  width: `${(char[1].value / 5) * 100}%`,
-                }}
+                // style={{
+                //   height: '10px',
+                //   width: `${(Number(char[1].value) / 5) * 100}%`,
+                // }}
               >
                 <CaretDownFill style={{ float: 'right' }} />
               </div>
