@@ -1,6 +1,6 @@
 import React from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import '../reviewsStyle.css';
+// import '../reviewsStyle.css';
 
 type StarBreakdownProps = {
   numOfRatings: number;

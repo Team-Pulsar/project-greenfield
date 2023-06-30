@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import { getReviews } from '../../actions/ReviewActions/actions';
 import RatingsBreakdown from './reviewRatingsHelpers/RatingsBreakdown';
 import ReviewsList from './reviewRatingsHelpers/ReviewsList';
-import './reviewsStyle.css';
+// import './reviewsStyle.css';
 import reviews from '../../../data/reviews';
 
 type RatingsAndReviewsProps = {
