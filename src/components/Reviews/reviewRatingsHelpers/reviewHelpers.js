@@ -1,4 +1,4 @@
-export const getDate = (date: string) => {
+export const getDate = (date) => {
   const month = [
     'January',
     'Feburary',
@@ -27,7 +27,7 @@ export const getDate = (date: string) => {
   );
 };
 
-export const validateEmail = (mail: string) => {
+export const validateEmail = (mail) => {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
     return true;
   }

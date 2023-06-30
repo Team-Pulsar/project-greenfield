@@ -1,19 +1,15 @@
 import React from 'react';
 import Stars from './Stars';
 
-type RatingSummaryProps = {
-  avgRatings: number;
-};
-
-const RatingSummary: React.FC<RatingSummaryProps> = ({ avgRatings }) => {
+const RatingSummary = (props) => {
   return (
     <div>
       <div style={{ display: 'flex' }}>
         <span style={{ fontSize: 45, display: 'inline-block' }}>
-          {avgRatings.toFixed(1)}{' '}
+          {props.avgRatings.toFixed(1)}{' '}
         </span>{' '}
-        <span style={{ display: 'inline-block' }}>
-          <Stars rating={avgRatings} />
+        <span style={{ display: 'inline-block', position: 'top' }}>
+          <Stars ratings={props.avgRatings} />
         </span>
       </div>
     </div>
