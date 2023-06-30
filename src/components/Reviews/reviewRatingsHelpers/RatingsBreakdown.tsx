@@ -7,17 +7,15 @@ type RatingsBreakdownProps = {
   productId: number;
   stars: number[];
   filtered: boolean;
-  ratings: number[];
   numOfRatings: number;
   changeView: () => void;
-  handleClick: () => void;
+  handleClick: (e: React.MouseEvent) => void;
 };
 
 const RatingsBreakdown: React.FC<RatingsBreakdownProps> = ({
   productId,
   stars,
   filtered,
-  ratings,
   numOfRatings,
   changeView,
   handleClick,
@@ -100,7 +98,6 @@ const RatingsBreakdown: React.FC<RatingsBreakdownProps> = ({
         changeView={changeView}
         stars={stars}
         filtered={filtered}
-        ratings={ratings}
         numOfRatings={numOfRatings}
         handleClick={handleClick}
       />

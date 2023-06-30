@@ -9,7 +9,7 @@ import RatingsAndReviews from './Reviews/RatingsAndReviews';
 const App: React.FC = () => (
   <div>
     <h1>Hi there!</h1>
-    <RatingsAndReviews />
+    <RatingsAndReviews name={'test'} productId={1} />
   </div>
 );
 

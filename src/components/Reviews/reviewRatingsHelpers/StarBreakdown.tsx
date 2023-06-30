@@ -3,16 +3,14 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import '../reviewsStyle.css';
 
 type StarBreakdownProps = {
-  ratings: number[];
   numOfRatings: number;
   filtered: boolean;
   stars: number[];
   changeView: () => void;
-  handleClick: (e: React.SyntheticEvent) => void;
+  handleClick: (e: React.MouseEvent) => void;
 };
 
 const StarBreakdown: React.FC<StarBreakdownProps> = ({
-  ratings,
   numOfRatings,
   filtered,
   stars,
