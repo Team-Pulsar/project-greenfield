@@ -2,19 +2,35 @@ import React from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import '../reviewsStyle.css';
 
-const StarBreakdown = (props) => {
+type StarBreakdownProps = {
+  ratings: number[];
+  numOfRatings: number;
+  filtered: boolean;
+  stars: number[];
+  changeView: () => void;
+  handleClick: (e: React.SyntheticEvent) => void;
+};
+
+const StarBreakdown: React.FC<StarBreakdownProps> = ({
+  ratings,
+  numOfRatings,
+  filtered,
+  stars,
+  changeView,
+  handleClick,
+}) => {
   return (
     <>
       <div className="starBarContainer">
         {[5, 4, 3, 2, 1].map((star, i) => {
-          let amount = props.ratings[star] || 0;
-          let totalReviews = props.numOfRatings || 0;
+          let amount = ratings[star] || 0;
+          let totalReviews = numOfRatings || 0;
           let percentage = (amount / totalReviews) * 100;
           return (
             <React.Fragment key={i}>
               <span
                 className="progress-label-left"
-                onClick={(e) => props.handleClick(e)}
+                onClick={(e) => handleClick(e)}
               >
                 {star} stars
               </span>
@@ -25,20 +41,18 @@ const StarBreakdown = (props) => {
           );
         })}
       </div>
-      {props.filtered ? (
+      {filtered && (
         <>
           <p>
             Current filters applied:{' '}
-            {props.stars.map((star, i) => (
+            {stars.map((star, i) => (
               <span key={i}>"{star} stars", </span>
             ))}
           </p>
-          <p className="remove-filter" onClick={props.changeView}>
+          <p className="remove-filter" onClick={changeView}>
             Remove All Filters
           </p>
         </>
-      ) : (
-        <span></span>
       )}
     </>
   );

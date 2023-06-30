@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getReviews } from '../../actions/ReviewActions/actions';
+// import { getReviews } from '../../actions/ReviewActions/actions';
 import RatingsBreakdown from './reviewRatingsHelpers/RatingsBreakdown';
 import ReviewsList from './reviewRatingsHelpers/ReviewsList';
 import './reviewsStyle.css';
